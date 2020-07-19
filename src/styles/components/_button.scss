@@ -1,0 +1,43 @@
+// Big button
+.big-button {
+  background-color: $orange;
+  border: none;
+  border-bottom: 0.6rem solid darken($orange, 10%);
+  color: white;
+  font-weight: bold;
+  font-size: $m-size + 1;
+  margin-bottom: $m-size;
+  padding: 2.4rem;
+  width: 100%;
+}
+
+.big-button:disabled {
+  opacity: 0.5;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .big-button {
+    font-size: $l-size;
+    margin-bottom: $xl-size;
+  }
+}
+
+// Regular buttons
+.button {
+  background: $orange;
+  border: none;
+  border-bottom: 0.3rem solid darken($orange, 10%);
+  color: white;
+  font-weight: 500;
+  padding: $s-size;
+}
+
+// BEM Block Element Modifier
+// in this case Modifier - convention --
+
+.button--link {
+  background: none;
+  border: none;
+  color: $off-white;
+  padding: 0;
+}
