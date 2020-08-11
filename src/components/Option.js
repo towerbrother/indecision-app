@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import OptionsContext from "./../context/optionsContext";
 
-const Option = (props) => (
-  <div className="option">
-    <p className="option__text">
-      {props.count}. {props.optionText}
-    </p>
-    <button
-      className="button button--link"
-      onClick={(e) => {
-        props.handleDeleteOption(props.optionText);
-      }}
-    >
-      Remove
-    </button>
-  </div>
-);
+const Option = ({ count, optionText }) => {
+  const { handleDeleteOption } = useContext(OptionsContext);
+  return (
+    <div className="option">
+      <p className="option__text">
+        {count}. {optionText}
+      </p>
+      <button
+        className="button button--link"
+        onClick={(e) => {
+          handleDeleteOption(optionText);
+        }}
+      >
+        Remove
+      </button>
+    </div>
+  );
+};
 
 export default Option;

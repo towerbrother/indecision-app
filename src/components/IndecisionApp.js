@@ -4,6 +4,7 @@ import Header from "./Header";
 import Options from "./Options";
 import Action from "./Action";
 import OptionModal from "./OptionModal";
+import OptionsContext from "../context/optionsContext";
 
 const IndecisionApp = () => {
   const [options, setOptions] = useState([]);
@@ -59,20 +60,15 @@ const IndecisionApp = () => {
   return (
     <div>
       <Header subtitle={subtitle} />
-      <div className="container">
-        <Action hasOptions={options.length > 0} handlePick={handlePick} />
-        <div className="widget">
-          <Options
-            options={options}
-            handleDeleteOptions={handleDeleteOptions}
-            handleDeleteOption={handleDeleteOption}
-          />
-          <AddOption
-            handleAddOption={handleAddOption}
-            hasOptions={options.length > 0}
-          />
+      <OptionsContext.Provider value={{ options, handleDeleteOption }}>
+        <div className="container">
+          <Action handlePick={handlePick} />
+          <div className="widget">
+            <Options handleDeleteOptions={handleDeleteOptions} />
+            <AddOption handleAddOption={handleAddOption} />
+          </div>
         </div>
-      </div>
+      </OptionsContext.Provider>
       <OptionModal
         selectedOption={selectedOption}
         handleClearSelectedOption={handleClearSelectedOption}
