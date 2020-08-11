@@ -1,34 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
-class AddOption extends React.Component {
-  state = {
-    error: undefined,
-  };
+const AddOption = (props) => {
+  const [error, setError] = useState(undefined);
 
-  handleAddOption = (e) => {
+  const handleAddOption = (e) => {
     e.preventDefault();
 
     const option = e.target.elements.option.value.trim();
-    const error = this.props.handleAddOption(option);
 
-    this.setState(() => ({ error: error }));
+    setError(props.handleAddOption(option));
 
     if (!error) e.target.elements.option.value = "";
   };
-
-  render() {
-    return (
-      <div>
-        {this.state.error && this.props.hasOptions && (
-          <p className="add-option-error">{this.state.error}</p>
-        )}
-        <form className="add-option" onSubmit={this.handleAddOption}>
-          <input className="add-option__input" type="text" name="option" />
-          <button className="button">Add Option</button>
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      {error && props.hasOptions && <p className="add-option-error">{error}</p>}
+      <form className="add-option" onSubmit={handleAddOption}>
+        <input className="add-option__input" type="text" name="option" />
+        <button className="button">Add Option</button>
+      </form>
+    </div>
+  );
+};
 
 export default AddOption;
