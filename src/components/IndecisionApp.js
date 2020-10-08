@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AddOption from "./AddOption";
 import Header from "./Header";
+import CreatedBy from "./CreatedBy";
 import Options from "./Options";
 import Action from "./Action";
 import OptionModal from "./OptionModal";
@@ -58,7 +59,7 @@ const IndecisionApp = () => {
   const subtitle = "Blame fate when faced with a hard decision!?";
 
   return (
-    <div>
+    <div className="wrapper">
       <Header subtitle={subtitle} />
       <OptionsContext.Provider value={{ options, handleDeleteOption }}>
         <div className="container">
@@ -73,6 +74,7 @@ const IndecisionApp = () => {
         selectedOption={selectedOption}
         handleClearSelectedOption={handleClearSelectedOption}
       />
+      <CreatedBy />
     </div>
   );
 };
