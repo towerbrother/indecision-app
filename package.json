@@ -1,4 +1,5 @@
 {
+  "homepage": "https://towerbrother.github.io/indecision-app",
   "name": "indecision-app",
   "version": "0.1.0",
   "private": true,
@@ -7,6 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "express": "^4.17.1",
+    "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
@@ -15,8 +17,9 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "live-server": "react-scripts start",
-    "start": "node server/server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
