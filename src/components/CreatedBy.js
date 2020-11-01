@@ -1,16 +1,16 @@
 import React from "react";
 
-const CreatedBy = () => (
+const CreatedBy = ({ url, author }) => (
   <div className="container">
     <h5 className="createdBy__text">
       Created by{" "}
       <a
         className="createdBy__link"
-        href="https://towerbrother.github.io/portfolio-app"
+        href={url}
         target="_blank"
         rel="noopener noreferrer"
       >
-        Giorgio Torre
+        {author}
       </a>
     </h5>
   </div>

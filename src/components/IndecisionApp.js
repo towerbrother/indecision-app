@@ -58,6 +58,9 @@ const IndecisionApp = () => {
 
   const subtitle = "Blame fate when faced with a hard decision!?";
 
+  const url = "https://towerbrother.github.io/portfolio-app";
+  const author = "Giorgio Torre";
+
   return (
     <div className="wrapper">
       <Header subtitle={subtitle} />
@@ -74,7 +77,7 @@ const IndecisionApp = () => {
         selectedOption={selectedOption}
         handleClearSelectedOption={handleClearSelectedOption}
       />
-      <CreatedBy />
+      <CreatedBy url={url} author={author} />
     </div>
   );
 };
