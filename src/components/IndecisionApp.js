@@ -10,6 +10,11 @@ const IndecisionApp = () => {
   const [options, setOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(undefined);
 
+  // constants
+  const subtitle = "Blame fate when faced with a hard decision!?";
+  const url = "https://towerbrother.github.io/portfolio-app";
+  const author = "Giorgio Torre";
+
   // when mounted
   useEffect(() => {
     try {
@@ -56,11 +61,6 @@ const IndecisionApp = () => {
     setSelectedOption(undefined);
   };
 
-  // constants
-  const subtitle = "Blame fate when faced with a hard decision!?";
-  const url = "https://towerbrother.github.io/portfolio-app";
-  const author = "Giorgio Torre";
-
   return (
     <div className="wrapper">
       <Header subtitle={subtitle} />
@@ -75,7 +75,6 @@ const IndecisionApp = () => {
           <AddOption handleAddOption={handleAddOption} />
         </div>
       </div>
-
       <OptionModal
         selectedOption={selectedOption}
         handleClearSelectedOption={handleClearSelectedOption}
