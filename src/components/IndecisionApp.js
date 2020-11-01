@@ -5,14 +5,13 @@ import CreatedBy from "./CreatedBy";
 import Options from "./Options";
 import Action from "./Action";
 import OptionModal from "./OptionModal";
-import OptionsContext from "../context/optionsContext";
 
 const IndecisionApp = () => {
   const [options, setOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(undefined);
 
+  // when mounted
   useEffect(() => {
-    // componentDidMount
     try {
       const json = localStorage.getItem("options");
       const storedOptions = JSON.parse(json);
@@ -22,8 +21,8 @@ const IndecisionApp = () => {
     }
   }, []);
 
+  // when options array is updated
   useEffect(() => {
-    //componentDidUpdate
     const json = JSON.stringify(options);
     localStorage.setItem("options", json);
   }, [options]);
@@ -43,6 +42,7 @@ const IndecisionApp = () => {
       return "This option already exist";
     } else {
       setOptions([...options, option]);
+      return undefined;
     }
   };
 
@@ -56,23 +56,26 @@ const IndecisionApp = () => {
     setSelectedOption(undefined);
   };
 
+  // constants
   const subtitle = "Blame fate when faced with a hard decision!?";
-
   const url = "https://towerbrother.github.io/portfolio-app";
   const author = "Giorgio Torre";
 
   return (
     <div className="wrapper">
       <Header subtitle={subtitle} />
-      <OptionsContext.Provider value={{ options, handleDeleteOption }}>
-        <div className="container">
-          <Action handlePick={handlePick} />
-          <div className="widget">
-            <Options handleDeleteOptions={handleDeleteOptions} />
-            <AddOption handleAddOption={handleAddOption} />
-          </div>
+      <div className="container">
+        <Action options={options} handlePick={handlePick} />
+        <div className="widget">
+          <Options
+            options={options}
+            handleDeleteOptions={handleDeleteOptions}
+            handleDeleteOption={handleDeleteOption}
+          />
+          <AddOption handleAddOption={handleAddOption} />
         </div>
-      </OptionsContext.Provider>
+      </div>
+
       <OptionModal
         selectedOption={selectedOption}
         handleClearSelectedOption={handleClearSelectedOption}

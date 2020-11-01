@@ -1,19 +1,17 @@
 import React from "react";
-import Modal from "react-modal";
+import Modal from "react-modal"; // followed documentation
 
-const OptionModal = (props) => (
+const OptionModal = ({ selectedOption, handleClearSelectedOption }) => (
   <Modal
-    isOpen={!!props.selectedOption}
-    onRequestClose={props.handleClearSelectedOption}
+    isOpen={!!selectedOption}
+    onRequestClose={handleClearSelectedOption}
     contentLabel="Selected Option"
     closeTimeoutMS={200}
     className="modal"
   >
     <h3 className="modal__title">Selected Option</h3>
-    {props.selectedOption && (
-      <p className="modal__body">{props.selectedOption}</p>
-    )}
-    <button className="button" onClick={props.handleClearSelectedOption}>
+    {selectedOption && <p className="modal__body">{selectedOption}</p>}
+    <button className="button" onClick={handleClearSelectedOption}>
       Okay
     </button>
   </Modal>

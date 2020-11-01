@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
-import OptionsContext from "../context/optionsContext";
+import React from "react";
 
-const Action = ({ handlePick }) => {
-  const { options } = useContext(OptionsContext);
+const Action = ({ options, handlePick }) => {
   return (
     <div>
       <button

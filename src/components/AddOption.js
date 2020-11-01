@@ -1,21 +1,19 @@
 import React, { useState } from "react";
 
-const AddOption = (props) => {
+const AddOption = ({ handleAddOption }) => {
   const [error, setError] = useState(undefined);
 
-  const handleAddOption = (e) => {
+  const handleOptionOrError = (e) => {
     e.preventDefault();
-
     const option = e.target.elements.option.value.trim();
-
-    setError(props.handleAddOption(option));
-
-    if (!error) e.target.elements.option.value = "";
+    setError(handleAddOption(option));
+    e.target.elements.option.value = "";
   };
+
   return (
     <div>
-      {error && props.hasOptions && <p className="add-option-error">{error}</p>}
-      <form className="add-option" onSubmit={handleAddOption}>
+      {error && <p className="add-option-error">{error}</p>}
+      <form className="add-option" onSubmit={handleOptionOrError}>
         <input className="add-option__input" type="text" name="option" />
         <button className="button">Add Option</button>
       </form>

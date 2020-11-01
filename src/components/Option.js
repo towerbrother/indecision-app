@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
-import OptionsContext from "./../context/optionsContext";
+import React from "react";
 
-const Option = ({ count, optionText }) => {
-  const { handleDeleteOption } = useContext(OptionsContext);
+const Option = ({ count, optionText, handleDeleteOption }) => {
   return (
     <div className="option">
       <p className="option__text">
