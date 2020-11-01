@@ -2,6 +2,8 @@
 
 A simple application built with React Javascript library that allows the end user(s) to chose among different options in a randomised way.
 
+App deployed with [GitHub Pages](https://pages.github.com/) at https://towerbrother.github.io/indecision-app/
+
 # Motivation
 
 The app was developed as part of a ReactJS tutorial. The tutorial featured usage of React class components to manage state. I refactored the source code using Hooks to align it with modern best practices.
