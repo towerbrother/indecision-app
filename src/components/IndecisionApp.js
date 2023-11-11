@@ -12,7 +12,7 @@ const IndecisionApp = () => {
 
   // constants
   const subtitle = "Blame fate when faced with a hard decision!?";
-  const url = "https://towerbrother.github.io/portfolio-app";
+  const url = "https://giorgio-portfolio-towerbrother.vercel.app/";
   const author = "Giorgio Torre";
 
   // when mounted
