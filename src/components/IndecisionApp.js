@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
-import AddOption from "./AddOption";
-import Header from "./Header";
-import CreatedBy from "./CreatedBy";
-import Options from "./Options";
-import Action from "./Action";
-import OptionModal from "./OptionModal";
+import React, { useState, useEffect } from 'react';
+import AddOption from './AddOption';
+import Header from './Header';
+import CreatedBy from './CreatedBy';
+import Options from './Options';
+import Action from './Action';
+import OptionModal from './OptionModal';
 
 const IndecisionApp = () => {
   const [options, setOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(undefined);
 
   // constants
-  const subtitle = "Blame fate when faced with a hard decision!?";
-  const url = "https://giorgio-portfolio-towerbrother.vercel.app/";
-  const author = "Giorgio Torre";
+  const subtitle = 'Blame fate when faced with a hard decisions!?';
+  const url = 'https://giorgio-portfolio-towerbrother.vercel.app/';
+  const author = 'Giorgio Torre';
 
   // when mounted
   useEffect(() => {
     try {
-      const json = localStorage.getItem("options");
+      const json = localStorage.getItem('options');
       const storedOptions = JSON.parse(json);
       if (storedOptions) setOptions(storedOptions);
     } catch (e) {
@@ -29,7 +29,7 @@ const IndecisionApp = () => {
   // when options array is updated
   useEffect(() => {
     const json = JSON.stringify(options);
-    localStorage.setItem("options", json);
+    localStorage.setItem('options', json);
   }, [options]);
 
   const handleDeleteOptions = () => {
@@ -42,9 +42,9 @@ const IndecisionApp = () => {
 
   const handleAddOption = (option) => {
     if (!option) {
-      return "Enter valid value to add item";
+      return 'Enter valid value to add item';
     } else if (options.indexOf(option) > -1) {
-      return "This option already exist";
+      return 'This option already exist';
     } else {
       setOptions([...options, option]);
       return undefined;
@@ -62,11 +62,11 @@ const IndecisionApp = () => {
   };
 
   return (
-    <div className="wrapper">
+    <div className='wrapper'>
       <Header subtitle={subtitle} />
-      <div className="container">
+      <div className='container'>
         <Action options={options} handlePick={handlePick} />
-        <div className="widget">
+        <div className='widget'>
           <Options
             options={options}
             handleDeleteOptions={handleDeleteOptions}
